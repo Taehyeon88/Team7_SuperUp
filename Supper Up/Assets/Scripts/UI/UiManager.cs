@@ -33,7 +33,7 @@ public class UiManager : MonoBehaviour
     private GameObject pauseCanvas;
 
     //한번만 실행
-    private bool isPlayGame = false;
+    public bool isPlayGame = false;
 
     //Pause씬 활성화전달변수
     [HideInInspector] public bool onPause = false;

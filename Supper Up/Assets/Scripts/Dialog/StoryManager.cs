@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.ComponentModel;
 
 
 public class StoryManager : MonoBehaviour
@@ -76,9 +77,16 @@ public class StoryManager : MonoBehaviour
             }
         }
     }
-    public void StartNarration(int storyId)
+    public void StartNarration(int storyId, bool useCheat = false)
     {
-        if (storyId != currentStoryId) return;                                  //Id체크 
+        if (!useCheat)
+        {
+            if (storyId != currentStoryId) return;                                  //Id체크 
+        }
+        else
+        {
+            currentStoryId = storyId;
+        }
 
         StoryNarrationSO narration = storyDatabase.GetNarrationById(storyId);   //현재 아이디에 맞는 나레이션 데이터 찾기
         if (narration != null)

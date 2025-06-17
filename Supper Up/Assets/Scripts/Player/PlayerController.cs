@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isTrusted = false;
     [HideInInspector] public bool isOneTime = false;
 
+    [HideInInspector] public float cheatSpeed = 1f;
+
     //내부 변수들
     private Rigidbody rb;
     private Animator playerAnimator;
@@ -143,7 +145,7 @@ public class PlayerController : MonoBehaviour
         bool isOnSlope = IsOnSlope();                                                       //경사이동용, 코드
         movement = isOnSlope ? AdjustDirectionToSlope(movement.normalized) : movement;
 
-        rb.MovePosition(rb.position + movement * (moveSpeed + velocity) * Time.deltaTime);
+        rb.MovePosition(rb.position + movement * (moveSpeed * cheatSpeed + velocity) * Time.deltaTime);
 
     }
 

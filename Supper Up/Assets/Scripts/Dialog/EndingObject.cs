@@ -9,13 +9,18 @@ public class EndingObject : MonoBehaviour
     {
         if (other.CompareTag("Player") && !isOneTime)
         {
-
             if (GameManager.Instance != null)
             {
                 if (GameManager.Instance.choiceds.Count < 4) return;
 
                 isOneTime = true;
                 Cursor.lockState = CursorLockMode.None;
+                other.transform.position = new Vector3(14.4f, 849f, -94.1f);    //아무소리도 안들리는 위치로 이동
+
+                if (UiManager.instance != null)
+                {
+                    UiManager.instance.isPlayGame = false;       //게임 재시작용 준비
+                }
 
                 GameManager.Instance.isGameEnd = true;
 
