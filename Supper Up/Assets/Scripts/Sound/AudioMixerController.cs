@@ -24,14 +24,20 @@ public class AudioMixerController : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
-        audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20 + 10);
+        audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);  // + 10
+
+        if (volume <= 0) audioMixer.SetFloat("Master", - 80f);
     }
     public void SetBGMVolume(float volume)
     {
-        audioMixer.SetFloat("BGM", Mathf.Log10(volume) * 20 + 10);
+        audioMixer.SetFloat("BGM", Mathf.Log10(volume) * 20);
+
+        if (volume <= 0) audioMixer.SetFloat("Master", - 80f);
     }
     public void SetSFXVolume(float volume)
     {
-        audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20 + 10);
+        audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
+
+        if (volume <= 0) audioMixer.SetFloat("Master", - 80f);
     }
 }

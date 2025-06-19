@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SettingManager : MonoBehaviour
 {
     public static float mouseSenesitivity = 100.0f;
-    public static float sound_Master = 0.35f;
+    public static float sound_Master = 0.8f;
     public static float sound_BGM = 0.35f;
     public static float sound_SFX = 0.4f;
 

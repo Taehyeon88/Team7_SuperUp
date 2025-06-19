@@ -174,6 +174,8 @@ public class CheatSystem : MonoBehaviour
         {
             isFlying = !isFlying;
 
+            ToggleSpeedUp();
+
             playerController.enabled = !isFlying;
             playerRigidbody.useGravity = !isFlying;
             string flyStatus = isFlying ? "시작" : "종료";
